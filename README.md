@@ -16,6 +16,8 @@
 
 * 只允许单实例（互斥量实现）
 
+* 显示 devtools
+
 
 ## 依赖
 
@@ -28,10 +30,8 @@ miniblink 作者 https://github.com/weolar 发布的二进制包（或自行编�
 ## 编译
 
 ```
-g++ -m32 -lcomctl32 mb_simple_demo.cpp
+g++ -m32 mb_simple_demo.cpp -lcomctl32
 ```
-
-注意，部分gcc版本的-lcomctl32可能出现问题，例如链接不上，对此我不太清楚怎么解决，可能是tdm-gcc的bug。
 
 如果不需要使用无边框窗体，将子类化那几行代码从文件中移除后即可正常编译。
 

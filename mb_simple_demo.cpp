@@ -21,7 +21,7 @@ freely, subject to the following restrictions:
    distribution.
 
 编译参数：
-    g++ -m32 -lcomctl32 mb_simple_demo.cpp
+    g++ -m32 mb_simple_demo.cpp -lcomctl32
     cl mb_simple_demo.cpp
 */
 
@@ -113,12 +113,12 @@ void HandleLoadUrlEnd(wkeWebView webView, void* param, const char *url, void *jo
 
 void BlinkMaximize() {
     HWND hwnd = wkeGetWindowHandle(app.window);
-    SendMessage(hwnd, WM_SYSCOMMAND, WS_MAXIMIZE, 0);
+    SendMessage(hwnd, WM_SYSCOMMAND, SC_MAXIMIZE, 0);
 }
 
 void BlinkMinimize() {
     HWND hwnd = wkeGetWindowHandle(app.window);
-    SendMessage(hwnd, WM_SYSCOMMAND, WS_MINIMIZE, 0);
+    SendMessage(hwnd, WM_SYSCOMMAND, SC_MINIMIZE, 0);
 }
 
 HWND GetHWND() {
@@ -242,6 +242,10 @@ void RunApplication(Application* app) {
         PrintHelpAndQuit(app);
         return;
     }
+
+    // 设置 miniblink devtools
+    // 这里的路径一般是 miniblink 二进制包的 front_end 目录，复制到当前目录并指定即可
+    // wkeSetDebugConfig(app->window, "showDevTools", "调试器路径，必须以utf8编码");
 
     RunMessageLoop(app);
 }
