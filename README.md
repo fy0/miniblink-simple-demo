@@ -23,7 +23,7 @@
 
 miniblink 作者 https://github.com/weolar 发布的二进制包（或自行编译）
 
-编译此程序需要其中的 wkedefine.h，执行依赖 node.dll
+编译此程序需要其中的 wke.h，执行依赖 node.dll
 
 注意32/64位问题
 
@@ -41,3 +41,9 @@ cl mb_simple_demo.cpp
 ```
 
 MSVC 编译，唯一需要的注意的是，文件编码应设置为 UTF8-BOM 或本地编码（GBK），CL不接受无BOM头的utf-8
+
+## 更新
+
+2018.10.09
+
+修正一些随着miniblink新版本带来的变更，现在又可以直接编译运行了。
